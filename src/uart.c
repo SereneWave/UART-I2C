@@ -52,7 +52,7 @@ void uart_dtr_h() {
 void uart_rts_l() {
     int status;
     ioctl(fd, TIOCMGET, &status);
-    // 设置 DTR 位
+    // 设置 RTS 位
     status |= TIOCM_RTS;
     ioctl(fd, TIOCMSET, &status);
 }
@@ -60,7 +60,7 @@ void uart_rts_l() {
 void uart_rts_h() {
     int status;
     ioctl(fd, TIOCMGET, &status);
-    // 清除 DTR 位
+    // 清除 RTS 位
     status &= ~TIOCM_RTS;
     ioctl(fd, TIOCMSET, &status);
 }
